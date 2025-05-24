@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.SobreView"
+             Title="Sobre O Aplicativo">
+
+    
+
+    <VerticalStackLayout>
+        
+
+        <Label Text="App criado por Ícaro Gomes Benedetti. No dia 17 de Maio de 2025. No horário de 20:00"
+               FontSize="50"
+               TextColor="Black"
+               BackgroundColor="{StaticResource Gray100}"
+               HorizontalOptions="Center"
+               FontFamily="Kalam"/>
+
+        <Label Text="Esse aplicativo é o basico sobre um cliente que irá planejar fazer uma estagia em um hotel, caso seja sozinho ou com filhos."
+               TextColor="Black"
+               BackgroundColor="{StaticResource Gray100}"
+               FontFamily="Kalam"
+               FontSize="49"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>
