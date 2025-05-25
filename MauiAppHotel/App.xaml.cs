@@ -1,5 +1,4 @@
-﻿
-namespace MauiAppHotel
+﻿namespace MauiAppHotel
 {
     public partial class App : Application
     {
