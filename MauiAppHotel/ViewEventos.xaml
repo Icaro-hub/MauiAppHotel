@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.ViewEventos"
+             Title="ViewEventos"
+             BackgroundImageSource="hotel.jpg">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Spacing="10">
+        <Frame Padding="10">
+            <VerticalStackLayout>
+                <Label Text="Marque seu evento"
+                       FontFamily="OpenSans"
+                       FontSize="25"
+                       TextColor="{StaticResource Primary}"
+                       />
+
+                <Label Text="Nome do Evento: " FontSize="Medium"/>
+                <Entry x:Name="txt_nome_do_evento" Placeholder="Ex: Conferência Anual de Tecnologia"/>
+
+                <Label Text="Data de Início: " FontSize="Medium"/>
+                <DatePicker x:Name="dtpck_inicio"
+                            Format="dd/MM/yyyy"/>
+
+                <Label Text="Data de Término: " FontSize="Medium"/>
+                <DatePicker x:Name="dtpck_termino"
+                            Format="dd/MM/yyyy"/>
+
+                <Label Text="Número de Participantes: " FontSize="Medium"/>
+                <Entry x:Name="txtNumeroParticipantes" Placeholder="Ex: 100" Keyboard="Numeric"/>
+
+                <Label Text="Local do Evento: " FontSize="Medium"/>
+                <Entry x:Name="txtLocal" Placeholder="Ex: Centro de Convenções YZT"/>
+
+                <Label Text="Custo por Participante: " FontSize="Medium"/>
+                <Entry x:Name="txtCusto" Placeholder="Ex: 80.00" Keyboard="Numeric"/>
+
+                <Button Text="Cadastrar Evento"
+                        Clicked="OnCadastrarEventosClicked"
+                        Margin="0,20,0,0"
+                        HorizontalOptions="Center"/>
+                
+                
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

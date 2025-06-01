@@ -1,3 +1,5 @@
+using MauiAppHotel.Models;
+
 namespace MauiAppHotel.Views;
 
 public partial class ContratacaoHospedagem : ContentPage
@@ -12,7 +14,7 @@ public partial class ContratacaoHospedagem : ContentPage
 		pck_quarto.ItemsSource = PropriedadesApp.lista_quartos;
 
 		dtpck_checkin.MinimumDate = DateTime.Now;
-        dtpck_checkin.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month +1, DateTime.Now.Day);
+        dtpck_checkin.MaximumDate = DateTime.Now.AddMonths(1);
 
 		dtpck_checkout.MinimumDate = dtpck_checkin.Date.AddDays(1);
         dtpck_checkout.MinimumDate = dtpck_checkin.Date.AddMonths(6);
@@ -20,17 +22,29 @@ public partial class ContratacaoHospedagem : ContentPage
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{
-		try
-		{
-			Navigation.PushAsync(new HospedagemContratada());
-		}
-		catch (Exception ex)
-		{
-			DisplayAlert("Oops", ex.Message, "OK");
-		}
-	}
+        try
+        {
+            Hospedagem h = new Hospedagem
+            {
+                QuartoSelecionado = (Quarto)pck_quarto.SelectedItem,
+                QntAdultos = Convert.ToInt32(stp_adultos.Value),
+                QntCriancas = Convert.ToInt32(stp_criancas.Value),
+                DataCheckIn = dtpck_checkin.Date,
+                DataCheckOut = dtpck_checkout.Date,
+            };
 
-	private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
+            Navigation.PushAsync(new HospedagemContratada()
+            {
+                BindingContext = h
+            });
+        }
+        catch (Exception ex)
+        {
+            DisplayAlert("Oops", ex.Message, "OK");
+        }
+    }
+
+    private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
 	{
 		DatePicker elemento = sender as DatePicker;
 
@@ -43,6 +57,11 @@ public partial class ContratacaoHospedagem : ContentPage
 	private async void NavegarParaSobre(object sender, EventArgs e)
 	{
         await Navigation.PushAsync(new SobreView());
+    }
+
+    private async void NavegarParaEventos(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ViewEventos());
     }
     
 }

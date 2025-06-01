@@ -99,6 +99,11 @@
                         BackgroundColor="{StaticResource Primary}"
                         Clicked="NavegarParaSobre"/>
 
+                <Button Text="Eventos"
+                        TextColor="White"
+                        BackgroundColor="{StaticResource Primary}"
+                        Clicked="NavegarParaEventos"/>
+
             </VerticalStackLayout>
         </Frame>
 
